@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    font-family: arial, sans-serif;
+    font-size: 0.9em;
+}
+/* any anchor tag */
+a {
+    margin: 5px;
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* flexbox container for child */
+.nav-flex-container {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    margin-right: 10px;
+
+}
+
+/* child cominator selector (>) selects element with specific parent */
+ul > a, ul > img {
+    padding: 0 8px;
+}
+/* box shadow. 1 horizontal offset, 2 vertical offset, 3 blur radius, 4 shadow size */
+.nav-img:hover {
+    box-shadow: 0 0 10px 0 gainsboro;  
+    border-radius: 20px; 
+    cursor: pointer;
+}
+
+/* references all section */
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+/* @font-face specifies a custom font to display text and it can be loaded either locally or remotely. */
+@font-face {
+    font-family: 'Product Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: url('https://fonts.gstatic.com/s/productsans/v5/HYvgU2fE2nRJvZ5JFAumwegdm0LZdjqr5-oayXSOefg.woff2') format('woff2');
+}
+
+h1 {
+    font-family: Product Sans;
+    font-size: 5.5em;
+}
+
+.searchbar-container {
+    display: flex;
+    /* space between evens out the 3 elements  */
+    justify-content: space-between;
+    width: 600px;
+    height: 38px;
+    /* border to show that width and height affect the div not the input */
+    border: 1px solid gainsboro;
+    border-radius: 20px;
+
+}
+/* we specify a direct input container as its the only element we want to affect */
+.searchbar-container > input {
+    /* flex-grow specifies how much an item (here the input) will grow relative to the 
+        rest og the flexible items inside the same container
+    */
+    flex-grow: 1;
+    border: none;
+    outline: none;
+
+}
+
+.searchbar-container:hover {
+    box-shadow: 0 0 10px 0 gainsboro;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.buttons-container {
+    padding-top: 53px;
+}
+
+button {
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: none;
+    height: 36px;
+    padding: 0 20px;
+    margin: 0 4px;
+}
+
+button:hover {
+    cursor: pointer;
+    box-shadow: 0 0 10px 0 gainsboro;
+}
+
+footer {
+    background-color: #f2f2f2;
+    /* position: fixed - is positioned relative to the viewport. This means
+    it stays in the same place even if the page is scrolled.
+    bottom: 0 - means there is 0 spaceing between the bottom of the page and the footer  */
+    position: fixed;
+    bottom: 0;
+    /* sets the footer to match the 100% of the viewport so it fills al the screen no matter the device size */
+    width: 100vw;
+}
+
+#footer-left {
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 20px;
+    align-items: center;
+
+}
+
+#footer-right {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 20px;
+    align-items: center;
+
+}
+
+/* lets work on responsiveness */
+@media (max-width: 630px) {
+
+    #footer-nav {
+        flex-direction: column;
+    }
+
+    #footer-left {
+        justify-content: center;
+    }
+    #footer-right {
+        justify-content: center;
+    }
+
+    .input-container {
+        width: 95vw;
+    }
+}
+
+@media (max-height: 522px) {
+    
+    body {
+        /* by default shows horizontal (x) scrollbar but now we hide it */
+        overflow-x: hidden;
+    }
+
+    section {
+        margin-bottom: 20px;
+    }
+
+    footer {
+        /* changing the position to relative changes the position of the element
+        to where it should be in the flow (moveing with the screen size) */
+        position: relative;
+    
+    }
+}
+
+@media (max-height: 570px) and (max-width: 630px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    section {
+        margin-bottom: 13px;
+    }
+
+    footer {
+        position: relative;
+    }
+}
